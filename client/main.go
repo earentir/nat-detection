@@ -62,6 +62,7 @@ func main() {
 	}
 }
 
+// Result holds the result of a NAT test.
 type Result struct {
 	Family      string
 	OutsideAddr string
@@ -76,10 +77,10 @@ func testFamily(ctx context.Context, ifc *net.Interface, network string) {
 	}
 
 	v4 := strings.HasSuffix(network, "4")
-	dialNet := network
-	if proto == "tcp" {
-		dialNet = strings.TrimSuffix(network, "udp") + "tcp"
-	}
+	// dialNet := network
+	// if proto == "tcp" {
+	// 	dialNet = strings.TrimSuffix(network, "udp") + "tcp"
+	// }
 
 	var res Result
 	res.Family = "IPv4"
